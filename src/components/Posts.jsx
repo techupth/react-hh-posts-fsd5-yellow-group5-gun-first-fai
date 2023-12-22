@@ -72,20 +72,14 @@ function Posts() {
   ]);
   const handleAddLikes = (index) => {
     const newLikes = [...posts];
-    newLikes[index] = { ...newLikes[index], likes: newLikes[index].likes + 1 };
-    console.log(newLikes[index]);
+    newLikes[index].likes = newLikes[index].likes + 1;
     setPosts(newLikes);
   };
   const handleDisLikes = (index) => {
     const newLikes = [...posts];
-    if (newLikes[index].likes === 0) {
-    } else {
-      newLikes[index] = {
-        ...newLikes[index],
-        likes: newLikes[index].likes - 1,
-      };
+    if (newLikes[index].likes > 0) {
+      newLikes[index].likes = newLikes[index].likes - 1;
     }
-
     setPosts(newLikes);
   };
   return (
